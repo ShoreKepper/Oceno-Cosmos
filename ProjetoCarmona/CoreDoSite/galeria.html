@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galeria — Multimídia, Canvas, SVG e APIs do Oceano & Cosmos">
+    <link rel="stylesheet" href="../CoreDoSite/css/style.css">
+    <title>Oceano & Cosmos — Galeria</title>
+    <style>
+        .gallery-main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            font-family: var(--ff-display);
+            color: var(--clr-primary);
+            font-size: var(--fs-2xl);
+            letter-spacing: 3px;
+            margin-bottom: .3rem;
+        }
+
+        .page-sub {
+            color: rgba(232, 244, 248, .5);
+            margin-bottom: 2.5rem;
+            font-size: var(--fs-sm);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══ HEADER / NAV ═══ -->
+    <header>
+        <nav class="nav-container" aria-label="Navegação principal">
+            <a href="index.html" class="nav-logo">✦ OCEANO & COSMOS</a>
+            <button id="menu-btn" class="btn-menu" aria-expanded="false" aria-controls="nav-links"
+                aria-label="Abrir menu">☰</button>
+            <ul class="nav-links" id="nav-links" role="list">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="formulario.html">Expedição</a></li>
+                <li><a href="galeria.html" aria-current="page">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="gallery-main">
+
+        <h1 class="page-title">🌊 Galeria de Exploração</h1>
+        <p class="page-sub">Multimídia, Canvas, SVG e APIs Web — com o tema Oceano & Cosmos</p>
+
+        <!-- ═══ VIDEO ═══ -->
+        <section class="gallery-section" aria-labelledby="video-title">
+            <h2 id="video-title">🎬 &lt;video&gt; — Documentário</h2>
+            <p>Elemento <code style="color:var(--clr-primary)">&lt;iframe&gt;</code> com vídeo incorporado do YouTube:
+            </p>
+            <figure style="margin-top:1rem;">
+
+                <iframe width="100%" height="450" src="https://www.youtube.com/embed/XcsSw6T3SAI?si=omvmJdiL4DX2ktum"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                    style="border-radius:12px; border:1px solid rgba(0,212,255,.2); display:block;">
+                </iframe>
+
+                <figcaption style="font-size:.82rem; color:rgba(232,244,248,.5);
+            margin-top:.6rem; text-align:center;">
+                    Figura 1 — Documentário sobre Oceano & Cosmos
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- ═══ AUDIO ═══ -->
+        <section class="gallery-section" aria-labelledby="audio-title">
+            <h2 id="audio-title">🔊 &lt;audio&gt; — Sons do Mar e do Cosmos</h2>
+            <figure>
+
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/5W4dqnXbiBN8C0ymDa7opC?utm_source=generator"
+                    width="100%" height="352" frameborder="0" allowfullscreen
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+                </iframe>
+
+                <figcaption style="font-size:.82rem; color:rgba(232,244,248,.5); margin-top:.5rem;">
+                    Playlist — Sons do Oceano & Cosmos
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- ═══ PICTURE ═══ -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem;">
+            <figure>
+                <img src="assets/img/banner-large.png.jpeg" alt="Oceano com coral e Via Láctea" loading="lazy" style="border-radius:12px; width:100%;
+                   border:1px solid rgba(0,212,255,.2);">
+                <figcaption style="font-size:.8rem; color:rgba(232,244,248,.5);
+            margin-top:.4rem; text-align:center;">
+                    🌊 Expedição no Recife
+                </figcaption>
+            </figure>
+            <figure>
+                <img src="assets/img/banner-small.png.jpeg" alt="ROV sob a Via Láctea" loading="lazy" style="border-radius:12px; width:100%;
+                   border:1px solid rgba(0,212,255,.2);">
+                <figcaption style="font-size:.8rem; color:rgba(232,244,248,.5);
+            margin-top:.4rem; text-align:center;">
+                    ⭐ ROV sob o Cosmos
+                </figcaption>
+            </figure>
+        </div>
+
+        <!-- ═══ CANVAS ═══ -->
+        <div style="display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:1rem; align-items:center;">
+            <button class="btn btn-primary" onclick="desenharFormas()">
+                🌊 Oceano & Cosmos
+            </button>
+            <button class="btn btn-outline" onclick="desenharGradiente()">
+                🌌 Aurora Abissal
+            </button>
+            <button class="btn btn-outline" onclick="limparCanvas()">
+                ✕ Limpar
+            </button>
+            <label style="display:flex; align-items:center; gap:.4rem;
+        color:rgba(232,244,248,.7); font-size:.85rem;">
+                Cor:
+                <input type="color" id="canvasCor" value="#00d4ff"
+                    style="height:38px; cursor:pointer; border:none; background:transparent;">
+            </label>
+        </div>
+
+        <canvas id="meuCanvas" width="800" height="400" style="width:100%; border:1px solid rgba(0,212,255,.3);
+           border-radius:12px; background:#020b18; cursor:crosshair;"
+            aria-label="Canvas interativo com tema oceano e cosmos">
+            Seu browser não suporta &lt;canvas&gt;.
+        </canvas>
+
+        <!-- ═══ SVG — Gráfico de Profundidades vs Distâncias ═══ -->
+        <section class="gallery-section" aria-labelledby="svg-title">
+            <h2 id="svg-title">📊 SVG Inline — Oceano vs Cosmos</h2>
+            <p>Gráfico comparativo: profundidades oceânicas e distâncias espaciais em SVG puro:</p>
+
+            <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg"
+                style="width:100%; max-width:600px; margin-top:1.5rem; display:block;" role="img"
+                aria-label="Gráfico comparativo Oceano vs Cosmos">
+                <title>Oceano vs Cosmos — Comparativo</title>
+                <desc>Gráfico de barras comparando profundidades oceânicas e distâncias no espaço</desc>
+
+                <!-- Fundo -->
+                <rect width="500" height="260" fill="#020b18" rx="12" />
+
+                <!-- grade -->
+                <line x1="60" y1="20" x2="60" y2="200" stroke="rgba(232,244,248,.1)" stroke-width="1" />
+                <line x1="60" y1="200" x2="490" y2="200" stroke="rgba(232,244,248,.1)" stroke-width="1" />
+
+                <!-- Barras Oceano (azuis) -->
+                <rect x="75" y="80" width="40" height="120" fill="#00d4ff" rx="4" opacity=".85">
+                    <title>Fossa das Marianas: 11 km</title>
+                </rect>
+                <rect x="130" y="120" width="40" height="80" fill="#00b4cc" rx="4" opacity=".85">
+                    <title>Zona Abissal: 6 km</title>
+                </rect>
+                <rect x="185" y="150" width="40" height="50" fill="#0a2540" rx="4" opacity=".85">
+                    <title>Zona Meso-pelágica: 1 km</title>
+                </rect>
+
+                <!-- Barras Cosmos (roxas) -->
+                <rect x="270" y="40" width="40" height="160" fill="#7c3aed" rx="4" opacity=".85">
+                    <title>Lua: 384.400 km</title>
+                </rect>
+                <rect x="325" y="60" width="40" height="140" fill="#9d5cf5" rx="4" opacity=".85">
+                    <title>Sol: 150 milhões km</title>
+                </rect>
+                <rect x="380" y="110" width="40" height="90" fill="#c084fc" rx="4" opacity=".85">
+                    <title>Marte: 225 milhões km</title>
+                </rect>
+                <rect x="435" y="150" width="40" height="50" fill="#e9d5ff" rx="4" opacity=".85">
+                    <title>Próxima Centauri: 4,2 a.l.</title>
+                </rect>
+
+                <!-- Labels eixo X -->
+                <text x="95" y="215" text-anchor="middle" font-size="9" fill="rgba(232,244,248,.6)">Marianas</text>
+                <text x="150" y="215" text-anchor="middle" font-size="9" fill="rgba(232,244,248,.6)">Abissal</text>
+                <text x="205" y="215" text-anchor="middle" font-size="9" fill="rgba(232,244,248,.6)">Meso.</text>
+                <text x="290" y="215" text-anchor="middle" font-size="9" fill="rgba(232,244,248,.6)">Lua</text>
+                <text x="345" y="215" text-anchor="middle" font-size="9" fill="rgba(232,244,248,.6)">Sol</text>
+                <text x="400" y="215" text-anchor="middle" font-size="9" fill="rgba(232,244,248,.6)">Marte</text>
+                <text x="455" y="215" text-anchor="middle" font-size="9" fill="rgba(232,244,248,.6)">P.Centauri</text>
+
+                <!-- Legenda -->
+                <rect x="75" y="232" width="12" height="12" fill="#00d4ff" rx="2" />
+                <text x="92" y="242" font-size="10" fill="rgba(232,244,248,.7)">🌊 Oceano</text>
+                <rect x="200" y="232" width="12" height="12" fill="#7c3aed" rx="2" />
+                <text x="217" y="242" font-size="10" fill="rgba(232,244,248,.7)">⭐ Cosmos</text>
+
+                <!-- Título -->
+                <text x="250" y="258" text-anchor="middle" font-size="11" fill="rgba(232,244,248,.4)">Profundidade /
+                    Distância — escala ilustrativa</text>
+            </svg>
+        </section>
+
+        <!-- ═══ APIS WEB ═══ -->
+        <section id="apis" class="gallery-section" aria-labelledby="apis-title">
+            <h2 id="apis-title">⚙️ APIs Web HTML5</h2>
+            <p style="margin-bottom:1.5rem;">Geolocalização, Web Storage, Drag & Drop e Clipboard API em ação:</p>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+                gap:1.5rem;">
+
+                <!-- Geolocalização -->
+                <div class="card">
+                    <h3>📍 Geolocalização</h3>
+                    <p id="geo-resultado" style="color:rgba(232,244,248,.6); margin:1rem 0; font-size:.9rem;">
+                        Clique para revelar suas coordenadas no mapa do cosmos.
+                    </p>
+                    <button class="btn btn-primary" onclick="obterLocalizacao()">
+                        🔭 Localizar-me
+                    </button>
+                </div>
+
+                <!-- Web Storage -->
+                <div class="card">
+                    <h3>💾 Web Storage</h3>
+                    <p style="color:rgba(232,244,248,.6); font-size:.85rem; margin-bottom:.6rem;">
+                        Salve uma observação astronômica ou oceânica:
+                    </p>
+                    <input type="text" id="storageInput" placeholder="Ex.: Vi uma estrela cadente às 22h..." style="width:100%; padding:.7rem; border:2px solid rgba(0,212,255,.2);
+                               border-radius:8px; margin-bottom:.8rem;
+                               background:rgba(4,21,41,.9); color:var(--clr-light);">
+                    <div style="display:flex; gap:.6rem;">
+                        <button class="btn btn-primary" style="flex:1; font-size:.82rem;" onclick="salvarStorage()">💾
+                            Salvar</button>
+                        <button class="btn btn-outline" style="flex:1; font-size:.82rem;" onclick="carregarStorage()">📖
+                            Carregar</button>
+                    </div>
+                    <p id="storage-resultado" style="margin-top:.8rem; color:rgba(232,244,248,.6); font-size:.85rem;">
+                    </p>
+                </div>
+
+                <!-- Drag & Drop -->
+                <div class="card">
+                    <h3>🪐 Drag & Drop</h3>
+                    <p style="color:rgba(232,244,248,.6); font-size:.85rem; margin-bottom:.8rem;">
+                        Arraste o planeta para a órbita:
+                    </p>
+                    <div id="drag-source" draggable="true" style="background:linear-gradient(135deg,#7c3aed,#00d4ff);
+                               color:white; padding:1rem; border-radius:8px;
+                               cursor:grab; text-align:center; margin-bottom:.8rem;
+                               user-select:none; font-weight:600;">
+                        🪐 Arraste-me!
+                    </div>
+                    <div id="drop-target" style="border:2px dashed rgba(0,212,255,.4); border-radius:8px;
+                               padding:1.5rem; text-align:center; color:rgba(232,244,248,.4);
+                               min-height:80px; display:flex; align-items:center;
+                               justify-content:center; transition:all .3s;
+                               background:rgba(4,21,41,.4);">
+                        🌌 Órbita — solte aqui ↓
+                    </div>
+                </div>
+
+                <!-- Clipboard API -->
+                <div class="card">
+                    <h3>📋 Clipboard API</h3>
+                    <p style="color:rgba(232,244,248,.6); font-size:.85rem; margin-bottom:.6rem;">
+                        Copie esta curiosidade:
+                    </p>
+                    <code id="clipboardText" style="display:block; background:rgba(4,21,41,.9);
+                               border:1px solid rgba(0,212,255,.15);
+                               padding:.8rem; border-radius:8px; margin-bottom:.8rem;
+                               font-size:.82rem; color:var(--clr-primary);
+                               word-break:break-all; line-height:1.5;">
+O oceano profundo e o espaço sideral são os dois maiores mistérios da humanidade — ambos inexplorados em mais de 80%.
+                    </code>
+                    <button class="btn btn-primary" onclick="copiarTexto()">
+                        📋 Copiar Curiosidade
+                    </button>
+                    <p id="clipboard-msg" style="margin-top:.6rem; font-size:.82rem;
+                               color:var(--clr-success); min-height:1.2rem;"></p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <p class="footer-logo">✦ OCEANO & COSMOS ✦</p>
+        <p>© <time datetime="2025">2025</time> — Projeto HTML5 | Sistema de Informação</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

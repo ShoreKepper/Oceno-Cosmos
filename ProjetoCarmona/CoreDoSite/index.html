@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oceano & Cosmos — explorando os dois infinitos da natureza">
+    <meta name="keywords" content="oceano, astros, estrelas, cosmos, HTML5, CSS3, JavaScript">
+    <meta name="author" content="Seu Nome">
+    <meta property="og:title" content="Oceano & Cosmos">
+    <meta property="og:description" content="Explorando os dois infinitos da natureza">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+    <link rel="stylesheet" href="../CoreDoSite/css/style.css">
+    <title>Oceano & Cosmos — Início</title>
+</head>
+
+<body>
+
+    <!-- ═══ HEADER / NAV ═══ -->
+    <header>
+        <nav class="nav-container" aria-label="Navegação principal">
+            <a href="index.html" class="nav-logo">✦ OCEANO & COSMOS</a>
+            <button id="menu-btn" class="btn-menu" aria-expanded="false"
+                    aria-controls="nav-links" aria-label="Abrir menu">☰</button>
+            <ul class="nav-links" id="nav-links" role="list">
+                <li><a href="index.html" aria-current="page">Início</a></li>
+                <li><a href="formulario.html">Expedição</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ═══ HERO ═══ -->
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+            <!-- Canvas de estrelas animadas -->
+            <canvas id="starCanvas" aria-hidden="true"></canvas>
+
+            <div class="hero-content fade-in">
+                <h1 id="hero-title">
+                    Entre o <span style="color:var(--clr-primary)">Oceano</span><br>
+                    e as <span style="color:var(--clr-secondary)">Estrelas</span>
+                </h1>
+                <p>Dois infinitos, uma mesma fascinação.<br>
+                   Mergulhe nas profundezas e alcance o cosmos.</p>
+
+                <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                    <a href="formulario.html" class="btn btn-primary">
+                        🚀 Juntar-se à Expedição
+                    </a>
+                    <a href="galeria.html" class="btn btn-outline"
+                       style="color:var(--clr-primary); border-color:var(--clr-primary);">
+                        🌊 Ver Galeria
+                    </a>
+                </div>
+
+                <!-- progress — profundidade explorada -->
+                <div style="margin-top:2.5rem; color:rgba(232,244,248,.7);">
+                    <p style="margin-bottom:.4rem; font-size:.9rem; letter-spacing:1px;">
+                        Profundidade explorada: <strong style="color:var(--clr-primary)">75%</strong>
+                    </p>
+                    <progress value="75" max="100"
+                        style="width:100%; height:8px; border-radius:4px;"></progress>
+                </div>
+            </div>
+        </section>
+
+        <!-- onda separadora -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="60">
+                <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"
+                      fill="#041529"/>
+            </svg>
+        </div>
+
+        <!-- ═══ CARDS ═══ -->
+        <section class="cards-section" aria-labelledby="features-title">
+            <div style="text-align:center; padding:0 2rem; margin-bottom:2rem;">
+                <h2 id="features-title" class="section-title">O Que Você Vai Explorar</h2>
+                <p class="section-sub">Recursos HTML5 modernos com o tema que nos une</p>
+            </div>
+            <div class="cards-grid">
+                <article class="card">
+                    <div class="card-icon">🌊</div>
+                    <h3>Expedição</h3>
+                    <p>Formulário completo com todos os inputs HTML5, validação JS e campos temáticos da nossa expedição oceânica e espacial.</p>
+                    <a href="formulario.html" class="btn btn-primary"
+                       style="margin-top:1rem; font-size:.85rem;">Acessar →</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🎬</div>
+                    <h3>Multimídia</h3>
+                    <p>Tags <code style="color:var(--clr-primary)">&lt;audio&gt;</code>, <code style="color:var(--clr-primary)">&lt;video&gt;</code>, <code style="color:var(--clr-primary)">&lt;picture&gt;</code> e <code style="color:var(--clr-primary)">&lt;figure&gt;</code> com fallbacks e acessibilidade.</p>
+                    <a href="galeria.html" class="btn btn-primary"
+                       style="margin-top:1rem; font-size:.85rem;">Acessar →</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🖼️</div>
+                    <h3>Canvas & SVG</h3>
+                    <p>Simulações visuais do cosmos e do oceano com desenho 2D em <code style="color:var(--clr-primary)">&lt;canvas&gt;</code> e gráficos vetoriais com <code style="color:var(--clr-primary)">&lt;svg&gt;</code>.</p>
+                    <a href="galeria.html#canvas" class="btn btn-primary"
+                       style="margin-top:1rem; font-size:.85rem;">Acessar →</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">📐</div>
+                    <h3>Semântica HTML5</h3>
+                    <p>Tags <code style="color:var(--clr-primary)">&lt;header&gt;</code>, <code style="color:var(--clr-primary)">&lt;main&gt;</code>, <code style="color:var(--clr-primary)">&lt;section&gt;</code>, <code style="color:var(--clr-primary)">&lt;article&gt;</code>, <code style="color:var(--clr-primary)">&lt;aside&gt;</code> e <code style="color:var(--clr-primary)">&lt;footer&gt;</code>.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>APIs Web</h3>
+                    <p>Geolocalização para mapear coordenadas, Web Storage para salvar observações, Drag & Drop e Clipboard API.</p>
+                    <a href="galeria.html#apis" class="btn btn-primary"
+                       style="margin-top:1rem; font-size:.85rem;">Acessar →</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Responsivo</h3>
+                    <p>CSS Grid, Flexbox, media queries e meta viewport para que o site funcione em qualquer tela — do celular ao monitor.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- onda separadora invertida -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="60">
+                <path d="M0,30 C360,0 1080,60 1440,30 L1440,0 L0,0 Z"
+                      fill="#041529"/>
+            </svg>
+        </div>
+
+        <!-- ═══ LAYOUT COM ASIDE ═══ -->
+        <section class="layout-aside" style="max-width:var(--max-width); margin:3rem auto;
+            padding:0 2rem; display:grid; grid-template-columns:1fr 300px; gap:2rem;">
+
+            <div>
+                <h2 style="font-family:var(--ff-display); color:var(--clr-primary);
+                    letter-spacing:2px; margin-bottom:1rem;">
+                    Dois Infinitos, Uma Curiosidade
+                </h2>
+                <p style="color:rgba(232,244,248,.75); margin-bottom:1rem;">
+                    O oceano cobre mais de 70% da superfície terrestre, mas
+                    <mark style="background:rgba(0,212,255,.2); color:var(--clr-primary);">
+                        menos de 20% foi explorado</mark> pela humanidade.
+                    Da mesma forma, o universo observável tem 93 bilhões de anos-luz de diâmetro —
+                    e mal começamos a entendê-lo.
+                </p>
+
+                <!-- details / summary — acordeão nativo -->
+                <details style="margin-top:1rem; border:1px solid rgba(0,212,255,.2);
+                    border-radius:8px; padding:1rem; background:rgba(4,21,41,.6);">
+                    <summary style="cursor:pointer; font-weight:600; color:var(--clr-primary);
+                        font-family:var(--ff-display); letter-spacing:1px;">
+                        🌊 Curiosidades do Oceano
+                    </summary>
+                    <ul style="margin-top:.8rem; padding-left:1.2rem; color:rgba(232,244,248,.8);">
+                        <li style="margin:.3rem 0;">A Fossa das Marianas tem 11 km de profundidade</li>
+                        <li style="margin:.3rem 0;">O oceano produz 50% do oxigênio da Terra</li>
+                        <li style="margin:.3rem 0;">A pressão no fundo do mar é 1.000× maior que na superfície</li>
+                        <li style="margin:.3rem 0;">Bioluminescência ocorre em 76% das espécies marinhas profundas</li>
+                        <li style="margin:.3rem 0;">A temperatura na zona abissal é de −1°C a 4°C</li>
+                    </ul>
+                </details>
+
+                <details style="margin-top:.5rem; border:1px solid rgba(124,58,237,.3);
+                    border-radius:8px; padding:1rem; background:rgba(4,21,41,.6);">
+                    <summary style="cursor:pointer; font-weight:600; color:var(--clr-secondary);
+                        font-family:var(--ff-display); letter-spacing:1px;">
+                        ⭐ Curiosidades do Cosmos
+                    </summary>
+                    <ul style="margin-top:.8rem; padding-left:1.2rem; color:rgba(232,244,248,.8);">
+                        <li style="margin:.3rem 0;">Existem mais estrelas no universo do que grãos de areia na Terra</li>
+                        <li style="margin:.3rem 0;">A luz do Sol leva 8 min 20 s para chegar até nós</li>
+                        <li style="margin:.3rem 0;">Buracos negros podem ter bilhões de vezes a massa do Sol</li>
+                        <li style="margin:.3rem 0;">A Via Láctea tem cerca de 200 bilhões de estrelas</li>
+                        <li style="margin:.3rem 0;">No espaço não há som — é completamente silencioso</li>
+                    </ul>
+                </details>
+            </div>
+
+            <!-- ASIDE — Profundidade dos oceanos vs distâncias espaciais -->
+            <aside class="sidebar-card">
+                <h3>Escala de Exploração</h3>
+
+                <div style="margin-bottom:.8rem;">
+                    <label style="font-size:.8rem; font-weight:600; color:rgba(232,244,248,.7);">
+                        🌊 Oceano Explorado
+                    </label>
+                    <meter value="0.20" min="0" max="1" low="0.3" high="0.7" optimum="1"
+                        style="width:100%; height:12px; display:block; margin-top:.3rem;"></meter>
+                    <small style="color:rgba(232,244,248,.5);">~20%</small>
+                </div>
+
+                <div style="margin-bottom:.8rem;">
+                    <label style="font-size:.8rem; font-weight:600; color:rgba(232,244,248,.7);">
+                        ⭐ Universo Mapeado
+                    </label>
+                    <meter value="0.05" min="0" max="1" low="0.3" high="0.7" optimum="1"
+                        style="width:100%; height:12px; display:block; margin-top:.3rem;"></meter>
+                    <small style="color:rgba(232,244,248,.5);">~5%</small>
+                </div>
+
+                <div style="margin-bottom:.8rem;">
+                    <label style="font-size:.8rem; font-weight:600; color:rgba(232,244,248,.7);">
+                        🔭 Exoplanetas Catalogados
+                    </label>
+                    <meter value="0.42" min="0" max="1" low="0.3" high="0.7" optimum="1"
+                        style="width:100%; height:12px; display:block; margin-top:.3rem;"></meter>
+                    <small style="color:rgba(232,244,248,.5);">~5.000 confirmados</small>
+                </div>
+
+                <div>
+                    <label style="font-size:.8rem; font-weight:600; color:rgba(232,244,248,.7);">
+                        🐠 Espécies Marinhas Conhecidas
+                    </label>
+                    <meter value="0.35" min="0" max="1" low="0.3" high="0.7" optimum="1"
+                        style="width:100%; height:12px; display:block; margin-top:.3rem;"></meter>
+                    <small style="color:rgba(232,244,248,.5);">~250k de ~1M estimadas</small>
+                </div>
+
+                <p style="margin-top:1rem; font-size:.75rem; color:rgba(232,244,248,.4);">
+                    <time datetime="2025-01">Dados: 2025</time>
+                </p>
+            </aside>
+        </section>
+
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <p class="footer-logo">✦ OCEANO & COSMOS ✦</p>
+        <p>© <time datetime="2025">2025</time> — Projeto HTML5 | Sistema de Informação</p>
+        <p style="margin-top:.3rem;">
+            Criado com 🌊 e ⭐ usando HTML5 puro, CSS3 e JavaScript ES6+
+        </p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>

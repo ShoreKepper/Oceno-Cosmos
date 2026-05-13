@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário de inscrição para a Expedição Oceano & Cosmos">
+    <link rel="stylesheet" href="../CoreDoSite/css/style.css">
+    <title>Oceano & Cosmos — Expedição</title>
+    <style>
+        .form-page {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        @media (max-width: 600px) {
+            .form-grid-2 { grid-template-columns: 1fr; }
+        }
+        .form-header {
+            text-align: center;
+            padding: 3rem 1.5rem 1rem;
+            background: linear-gradient(180deg, var(--clr-dark) 0%, var(--clr-deep) 100%);
+        }
+        .form-header h1 {
+            font-family: var(--ff-display);
+            color: var(--clr-primary);
+            font-size: var(--fs-2xl);
+            letter-spacing: 3px;
+            margin-bottom: .5rem;
+        }
+        .form-header p { color: rgba(232,244,248,.6); }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══ HEADER / NAV ═══ -->
+    <header>
+        <nav class="nav-container" aria-label="Navegação principal">
+            <a href="index.html" class="nav-logo">✦ OCEANO & COSMOS</a>
+            <button id="menu-btn" class="btn-menu" aria-expanded="false"
+                    aria-controls="nav-links" aria-label="Abrir menu">☰</button>
+            <ul class="nav-links" id="nav-links" role="list">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="formulario.html" aria-current="page">Expedição</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner do formulário -->
+    <div class="form-header">
+        <h1>🚀 Inscrição na Expedição</h1>
+        <p>Preencha os dados abaixo para embarcar na expedição Oceano & Cosmos</p>
+    </div>
+
+    <main>
+        <div class="form-page">
+
+            <div class="success-msg" id="successMsg">
+                🌊 Inscrição realizada! Prepare-se para explorar o infinito. ⭐
+            </div>
+
+            <form id="mainForm" novalidate autocomplete="on">
+
+                <!-- ═══ DADOS DO EXPLORADOR ═══ -->
+                <fieldset style="border:2px solid var(--clr-primary);
+                    border-radius:12px; padding:1.5rem; margin-bottom:1.5rem;">
+                    <legend style="color:var(--clr-primary); font-weight:700;
+                        padding:0 .5rem;">🌊 Dados do Explorador</legend>
+
+                    <div class="form-grid-2">
+                        <!-- text -->
+                        <div class="form-group">
+                            <label for="nome">Nome completo *</label>
+                            <input type="text" id="nome" name="nome"
+                                placeholder="Ex.: Marie Tharp"
+                                required minlength="3" maxlength="80"
+                                autocomplete="name">
+                            <span class="error-msg" id="erro-nome"></span>
+                        </div>
+
+                        <!-- email -->
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email"
+                                placeholder="explorador@cosmos.com"
+                                required autocomplete="email">
+                            <span class="error-msg" id="erro-email"></span>
+                        </div>
+
+                        <!-- tel -->
+                        <div class="form-group">
+                            <label for="tel">Telefone *</label>
+                            <input type="tel" id="tel" name="tel"
+                                placeholder="(11) 99999-9999"
+                                pattern="\(\d{2}\)\s\d{4,5}-\d{4}"
+                                required autocomplete="tel">
+                            <span class="error-msg" id="erro-tel"></span>
+                        </div>
+
+                        <!-- date -->
+                        <div class="form-group">
+                            <label for="nascimento">Data de nascimento *</label>
+                            <input type="date" id="nascimento" name="nascimento"
+                                min="1900-01-01" required autocomplete="bday">
+                            <span class="error-msg" id="erro-nascimento"></span>
+                        </div>
+
+                        <!-- number -->
+                        <div class="form-group">
+                            <label for="idade">Idade</label>
+                            <input type="number" id="idade" name="idade"
+                                min="1" max="120" step="1" placeholder="25">
+                            <span class="error-msg" id="erro-idade"></span>
+                        </div>
+
+                        <!-- url -->
+                        <div class="form-group">
+                            <label for="site">Portfólio / Lattes</label>
+                            <input type="url" id="site" name="site"
+                                placeholder="https://meuportfolio.com"
+                                autocomplete="url">
+                            <span class="error-msg" id="erro-site"></span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ═══ ACESSO E PREFERÊNCIAS ═══ -->
+                <fieldset style="border:2px solid var(--clr-secondary);
+                    border-radius:12px; padding:1.5rem; margin-bottom:1.5rem;">
+                    <legend style="color:var(--clr-secondary); font-weight:700;
+                        padding:0 .5rem;">⭐ Acesso e Preferências</legend>
+
+                    <div class="form-grid-2">
+                        <!-- password -->
+                        <div class="form-group">
+                            <label for="senha">Senha de acesso *</label>
+                            <input type="password" id="senha" name="senha"
+                                required minlength="8"
+                                placeholder="Mínimo 8 caracteres"
+                                autocomplete="new-password">
+                            <span class="error-msg" id="erro-senha"></span>
+                        </div>
+
+                        <!-- password confirm -->
+                        <div class="form-group">
+                            <label for="confirmSenha">Confirmar senha *</label>
+                            <input type="password" id="confirmSenha" name="confirmSenha"
+                                required placeholder="Repita a senha"
+                                autocomplete="new-password">
+                            <span class="error-msg" id="erro-confirmSenha"></span>
+                        </div>
+
+                        <!-- search + datalist: base de operações -->
+                        <div class="form-group">
+                            <label for="cidade">Base de operações</label>
+                            <input type="search" id="cidade" name="cidade"
+                                list="cidades-lista"
+                                placeholder="Sua cidade"
+                                autocomplete="address-level2">
+                            <datalist id="cidades-lista">
+                                <option value="São Paulo">
+                                <option value="Rio de Janeiro">
+                                <option value="Belo Horizonte">
+                                <option value="Curitiba">
+                                <option value="Porto Alegre">
+                                <option value="Salvador">
+                                <option value="Fortaleza">
+                                <option value="Manaus">
+                                <option value="Recife">
+                                <option value="Florianópolis">
+                            </datalist>
+                        </div>
+
+                        <!-- color: cor da bioluminescência favorita -->
+                        <div class="form-group">
+                            <label for="corFavorita">Cor bioluminescente favorita</label>
+                            <input type="color" id="corFavorita" name="corFavorita"
+                                value="#00d4ff"
+                                style="height:44px; cursor:pointer; background:transparent;">
+                        </div>
+
+                        <!-- file: foto -->
+                        <div class="form-group">
+                            <label for="avatar">Foto do explorador</label>
+                            <input type="file" id="avatar" name="avatar"
+                                accept="image/png,image/jpeg,image/webp"
+                                style="padding:.5rem; color:var(--clr-light);">
+                            <span class="error-msg" id="erro-avatar"></span>
+                        </div>
+
+                        <!-- month: mês da expedição -->
+                        <div class="form-group">
+                            <label for="mesInicio">Mês da expedição</label>
+                            <input type="month" id="mesInicio" name="mesInicio">
+                        </div>
+
+                        <!-- week -->
+                        <div class="form-group">
+                            <label for="semana">Semana preferida de embarque</label>
+                            <input type="week" id="semana" name="semana">
+                        </div>
+
+                        <!-- datetime-local -->
+                        <div class="form-group">
+                            <label for="reuniao">Data/hora do briefing</label>
+                            <input type="datetime-local" id="reuniao" name="reuniao">
+                        </div>
+
+                        <!-- time -->
+                        <div class="form-group">
+                            <label for="horario">Horário preferido de mergulho</label>
+                            <input type="time" id="horario" name="horario"
+                                min="05:00" max="22:00">
+                        </div>
+
+                        <!-- range com output: profundidade máxima -->
+                        <div class="form-group" style="grid-column:1/-1;">
+                            <label for="satisfacao">
+                                Profundidade de mergulho:
+                                <output for="satisfacao" id="outputSatisfacao"
+                                    style="color:var(--clr-primary); font-weight:700;">5</output>/10
+                            </label>
+                            <input type="range" id="satisfacao" name="satisfacao"
+                                min="1" max="10" value="5" step="1"
+                                style="width:100%; accent-color:var(--clr-primary);"
+                                oninput="outputSatisfacao.value=this.value">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ═══ PERFIL DO EXPLORADOR ═══ -->
+                <fieldset style="border:2px solid var(--clr-accent);
+                    border-radius:12px; padding:1.5rem; margin-bottom:1.5rem;">
+                    <legend style="color:var(--clr-accent); font-weight:700;
+                        padding:0 .5rem;">🔭 Perfil do Explorador</legend>
+
+                    <!-- select: área de interesse -->
+                    <div class="form-group">
+                        <label for="curso">Área de interesse</label>
+                        <select id="curso" name="curso" autocomplete="off">
+                            <option value="">— Selecione sua área —</option>
+                            <optgroup label="🌊 Ciências do Mar">
+                                <option value="oceanografia">Oceanografia</option>
+                                <option value="biologia-marinha">Biologia Marinha</option>
+                                <option value="geologia-submarina">Geologia Submarina</option>
+                            </optgroup>
+                            <optgroup label="⭐ Ciências do Espaço">
+                                <option value="astronomia">Astronomia</option>
+                                <option value="astrofisica">Astrofísica</option>
+                                <option value="cosmologia">Cosmologia</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- textarea: relato do explorador -->
+                    <div class="form-group">
+                        <label for="bio">Relato do explorador *</label>
+                        <textarea id="bio" name="bio" rows="4"
+                            placeholder="Conte sua experiência com o oceano ou o cosmos..."
+                            required minlength="20" maxlength="500"
+                            style="resize:vertical;"></textarea>
+                        <span class="error-msg" id="erro-bio"></span>
+                    </div>
+
+                    <!-- radio: nível de experiência -->
+                    <div class="form-group">
+                        <label>Nível de mergulho *</label>
+                        <div style="display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:.3rem;">
+                            <label style="display:flex; align-items:center; gap:.4rem; cursor:pointer; color:var(--clr-light);">
+                                <input type="radio" name="nivel" value="iniciante" required
+                                    style="accent-color:var(--clr-primary);">
+                                🌱 Iniciante
+                            </label>
+                            <label style="display:flex; align-items:center; gap:.4rem; cursor:pointer; color:var(--clr-light);">
+                                <input type="radio" name="nivel" value="intermediario"
+                                    style="accent-color:var(--clr-primary);">
+                                🌊 Intermediário
+                            </label>
+                            <label style="display:flex; align-items:center; gap:.4rem; cursor:pointer; color:var(--clr-light);">
+                                <input type="radio" name="nivel" value="avancado"
+                                    style="accent-color:var(--clr-primary);">
+                                🚀 Avançado
+                            </label>
+                        </div>
+                        <span class="error-msg" id="erro-nivel"></span>
+                    </div>
+
+                    <!-- checkboxes: equipamentos -->
+                    <div class="form-group">
+                        <label>Equipamentos que domina</label>
+                        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:.3rem;">
+                            <label style="display:flex; align-items:center; gap:.4rem; cursor:pointer; color:var(--clr-light);">
+                                <input type="checkbox" name="equip" value="sonar"
+                                    style="accent-color:var(--clr-primary);"> 🔊 Sonar
+                            </label>
+                            <label style="display:flex; align-items:center; gap:.4rem; cursor:pointer; color:var(--clr-light);">
+                                <input type="checkbox" name="equip" value="telescopio"
+                                    style="accent-color:var(--clr-primary);"> 🔭 Telescópio
+                            </label>
+                            <label style="display:flex; align-items:center; gap:.4rem; cursor:pointer; color:var(--clr-light);">
+                                <input type="checkbox" name="equip" value="rov"
+                                    style="accent-color:var(--clr-primary);"> 🤖 ROV
+                            </label>
+                            <label style="display:flex; align-items:center; gap:.4rem; cursor:pointer; color:var(--clr-light);">
+                                <input type="checkbox" name="equip" value="espectrometro"
+                                    style="accent-color:var(--clr-primary);"> ⚗️ Espectrômetro
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- hidden -->
+                    <input type="hidden" name="origem" value="oceano-cosmos-2025">
+
+                    <!-- aceite -->
+                    <div class="form-group">
+                        <label style="display:flex; align-items:flex-start; gap:.6rem;
+                            cursor:pointer; color:var(--clr-light);">
+                            <input type="checkbox" id="aceite" name="aceite"
+                                required style="margin-top:3px; accent-color:var(--clr-primary);">
+                            <span>Concordo com o
+                                <a href="#" style="color:var(--clr-primary);">Código da Expedição</a>
+                                e a
+                                <a href="#" style="color:var(--clr-primary);">Política de Dados</a> *
+                            </span>
+                        </label>
+                        <span class="error-msg" id="erro-aceite"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Botões -->
+                <div style="display:flex; gap:1rem; justify-content:flex-end; flex-wrap:wrap;">
+                    <button type="reset" class="btn btn-outline">↺ Limpar</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        🚀 Confirmar Inscrição
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <p class="footer-logo">✦ OCEANO & COSMOS ✦</p>
+        <p>© <time datetime="2025">2025</time> — Projeto HTML5 | Sistema de Informação</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
